@@ -1,0 +1,282 @@
+<script src='https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js'></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation on Responsive Web Designs</title>
+    <link rel='stylesheet' href='tdp.css'>
+
+<body>
+    <div id="content">
+        <nav id="navbar">
+            <header id='header'>
+                <abbr title='Responsive Web Design'>RWD</abbr> Documentation
+            </header>
+                <ul>
+                    <li>
+                       <a class='nav-link' href='#Introduction'>Introduction</a>
+                    </li>
+                    <li>
+                        <a class='nav-link' href='#What_you_should_already_know'>What you should already know</a>
+                    </li>
+                    <li>
+                        <a class='nav-link' href='#Responsive_Image'>Responsive Image</a>
+                    </li>
+                    <li>
+                        <a class='nav-link' href='#Responsive_Layouts'>Responsive Layouts</a>
+                    </li>
+                    <li>
+                        <a class='nav-link' href='#Media_Queries'>Media Queries</a>
+                    </li>
+                    <li>
+                        <a class='nav-link' href='#CSS_HowTo'>CSS HowTo</a>
+                    </li>
+                    
+                </ul>
+        </nav>
+        <main id="main-doc">
+           <section class='main-section'  id="Introduction" >
+                <header>Introduction</header>
+                <p>
+                    Responsive web design suggests that the approach of designing and developing a website should repond to the user's behavior and environment based on platform, orientation and screen size. The practice consists of a well organized HTML structure and a mix of flexible grids, customizable layouts and images of intelligent use of CSS and its media queries, not forgetting reponsive typographies. For example, as a user switches from a laptop to a tablet or phone, the website will automatically switch media to accommodate for resolution, image size and scripting abiliities. To put simply, the website will have the technology to automatically respond to the user's preferences and different devices. This eliminates the need for multiple different design and development phases for each new gadget that is new to the market.
+                </p>
+                <p>In this course, what we'll be focusing on is application of our basic knowledge to achieve responsive designs.</p>
+            </section>
+           <section class='main-section' id="What_you_should_already_know" >
+               <header>What you should already know</header>
+               <div>
+                   <p>
+                    This guide assumes you have the following basic background:
+                   </p>
+                   <ul>
+                       <li>An understanding of HTML & HTML5</li>
+                       <li>understanding of CSS(Cascading Style Sheet)</li>
+                       <li>Basic knowledge of CSS Flexbox and Grid and their properties</li>
+                   </ul>
+               </div>
+           </section>
+           <section class='main-section' id='Responsive_Image'>
+            <header>Responsive Image</header>
+            <h2>How To Create a Responsive Image</h2>
+            <p>Responsive images will automatically adjust to fit the size of the screen.</p>
+            <h3>Step 1. Add HTML</h3>
+            <code>
+                <span class='tagname'>
+                    <span class='tag'><</span>
+                    img
+                    <span class='attribute'>
+                         src
+                        <span class='attributevalue'>
+                            =/*img src*/
+                        </span>
+                         alt
+                        <span class='attributevalue'>
+                            ="/*alternate-text*/"
+                        </span>
+                        class
+                        <span class='attributevalue'>
+                            ="responsive"
+                        </span>
+                        <span class='tag'>></span>
+                    </span>
+                </span>
+            </code>
+            <h3>Step 2. Add CSS</h3>
+            <code>
+                <span class="selector">.responsive </span><span class="symbols">{</span><br>
+                <span class="cssppt">max-width</span><span class='symbols'>: </span><span class='cssvalue'>100%</span><span class='symbols'>;</span><br>
+                <span class="cssppt">height</span><span class='symbols'>: </span><span class='cssvalue'>auto</span><span class='symbols'>;</span><br>
+                <span class='symbols'>}</span>
+            </code>
+            <p>If you want to restrict a responsive image to a maximum size, use the max-width property, with a pixel value of your choice:</p>
+            <code>
+                <span class="selector">.responsive </span><span class="symbols">{</span><br>
+                <span class="cssppt">width</span><span class='symbols'>: </span><span class='cssvalue'>100%</span><span class='symbols'>;</span><br>
+                <span class="cssppt">max-width</span><span class='symbols'>: </span><span class='cssvalue'>400px</span><span class='symbols'>;</span><br>
+                <span class="cssppt">height</span><span class='symbols'>: </span><span class='cssvalue'>auto</span><span class='symbols'>;</span><br>
+                <span class='symbols'>}</span>
+            </code>
+
+            <h2>How to create a Responsive Background Image</h2>
+            <h3>Background Cover</h3>
+            <p>If you want the background image to cover the entire element, you can set the <span class="ppt-value">background-size</span> property to <span class="ppt-value">cover.</span>
+                Also, to make sure the entire element is always covered, set the <span class="ppt-value">background-attachment</span> property to <span class="ppt-value">fixed:</span> 
+                This way, the background image will cover the entire element, with no stretching (the image will keep its original proportions):</p>
+                <code>
+                    <p class='selector'><span class="tag"><</span>style<span class="tag">></span></p>
+                    <span class="selector">div </span><span class="symbols">{</span><br>
+                    <span class="cssppt">background-image</span><span class='symbols'>: </span><span class='cssvalue'>url('image src here')</span><span class='symbols'>;</span><br>
+                    <span class="cssppt">background-repeat</span><span class='symbols'>: </span><span class='cssvalue'>no-repeat</span><span class='symbols'>;</span><br>
+                    <span class="cssppt">background-attachment</span><span class='symbols'>: </span><span class='cssvalue'>fixed</span><span class='symbols'>;</span><br>
+                    <span class="cssppt">background-size</span><span class='symbols'>: </span><span class='cssvalue'>cover</span><span class='symbols'>;</span><br>
+                    <span class='symbols'>}</span>
+                    <p class='selector'><span class="tag"><</span>/style<span class="tag">></span></p>
+                </code>
+
+                <h3>Background Stretch</h3>
+                <p>If you want the background image to stretch to fit the entire element, you can set the <span class="ppt-value">background-size</span> property to <span class="ppt-value">100% 100%:</span></p>
+                <code>
+                    <p class='selector'><span class="tag"><</span>style<span class="tag">></span></p>
+                    <span class="selector">div </span><span class="symbols">{</span><br>
+                    <span class="cssppt">background-image</span><span class='symbols'>: </span><span class='cssvalue'>url('image src here')</span><span class='symbols'>;</span><br>
+                    <span class="cssppt">background-repeat</span><span class='symbols'>: </span><span class='cssvalue'>no-repeat</span><span class='symbols'>;</span><br>
+                    <span class="cssppt">background-attachment</span><span class='symbols'>: </span><span class='cssvalue'>fixed</span><span class='symbols'>;</span><br>
+                    <span class="cssppt">background-size</span><span class='symbols'>: </span><span class='cssvalue'>100% 100%</span><span class='symbols'>;</span><br>
+                    <span class='symbols'>}</span>
+                    <p class='selector'><span class="tag"><</span>/style<span class="tag">></span></p>
+                </code>
+            </section>
+            <section class='main-section' id="Responsive_Layouts">
+                <header>Responsive Layouts</header>
+                <p>In this section we'll focus on Flexbox</p>
+                <h3>CSS Flexbox</h3>
+                <h4>Flexbox: Use display: flex to Position Two Boxes</h4>
+                <p>This section shows how to use CSS to position elements in a flexible way.</p>
+                <p>Placing the CSS property display: flex; on an element allows you to use other flex properties to build a responsive page.</p>
+                <p>Example</p>
+                <code>
+                    <span class='tagname'>
+                        <span class='tag'><</span>
+                        div
+                        <span class='attribute'>
+                            id
+                            <span class='attributevalue'>
+                                ="box-container"
+                            </span>
+                            <span class='tag'>></span>
+                        </span>
+                    </span><br>
+                    <span class='tagname'>
+                        <span class='tag'><</span>
+                        div
+                        <span class='attribute'>
+                            id
+                            <span class='attributevalue'>
+                                ="box-1"
+                            </span>
+                            <span class='tag'>></span>
+                            <span class='tag'><</span>
+                            /div
+                            <span class='tag'>></span>
+                        </span>
+                    </span><br>
+                    <span class='tagname'>
+                        <span class='tag'><</span>
+                        div
+                        <span class='attribute'>
+                            id
+                            <span class='attributevalue'>
+                                ="box-2"
+                            </span>
+                            <span class='tag'>></span>
+                            <span class='tag'><</span>
+                            /div
+                            <span class='tag'>></span>
+                        </span><br>
+                        <span class='tag'><</span>
+                    /div
+                    <span class='tag'>></span>
+                    </span><br>
+                    
+
+                </code>
+                <p>Add the CSS property <span class='ppt-value'>display</span> to #box-container and set its value to <span class="ppt-value">flex.</span></p>
+                <code>
+                    <p class='selector'><span class="tag"><</span>style<span class="tag">></span></p>
+                    <span class="selector">#box-container</span><span class="symbols">{</span><br>
+                    <span class="cssppt">height</span><span class='symbols'>: </span><span class='cssvalue'>500px</span><span class='symbols'>;</span><br>
+                    <span class="cssppt">display</span><span class='symbols'>: </span><span class='cssvalue'>flex</span><span class='symbols'>;</span><br>
+                    <span class='symbols'>}</span><br>
+
+                    <span class="selector">#box-1</span><span class="symbols">{</span><br>
+                    <span class="cssppt">background-color</span><span class='symbols'>: </span><span class='cssvalue'>blue</span><span class='symbols'>;</span><br>
+                    <span class="cssppt">width</span><span class='symbols'>: </span><span class='cssvalue'>50%</span><span class='symbols'>;</span><br>
+                    <span class="cssppt">height</span><span class='symbols'>: </span><span class='cssvalue'>50%</span><span class='symbols'>;</span><br>
+                    <span class='symbols'>}</span><br>
+
+                    <span class="selector">#box-2</span><span class="symbols">{</span><br>
+                        <span class="cssppt">background-color</span><span class='symbols'>: </span><span class='cssvalue'>red</span><span class='symbols'>;</span><br>
+                        <span class="cssppt">width</span><span class='symbols'>: </span><span class='cssvalue'>50%</span><span class='symbols'>;</span><br>
+                        <span class="cssppt">height</span><span class='symbols'>: </span><span class='cssvalue'>50%</span><span class='symbols'>;</span><br>
+                        <span class='symbols'>}</span>
+                    <p class='selector'><span class="tag"><</span>/style<span class="tag">></span></p>
+                </code>
+                <h4>The flex-direction Property</h4>
+                <p>The <span class='ppt-value'>flex-direction</span> property specifies the direction of the flexible items.
+                </p>
+                <p>It has the following values</p>
+                <ul>
+                    <li><span class='ppt-value'>row</span></li>
+                    <li><span class='ppt-value'>column</span></li>
+                    <li><span class='ppt-value'>row-reverse</span></li>
+                    <li><span class='ppt-value'>column-reverse</span></li>
+                    
+                </ul>
+                <p>Other properties under the flexbox layout are</p>
+                <p>The <span class='ppt-value'>justify-content</span>, <span class='ppt-value'>align-items</span> , <span class='ppt-value'>flex-wrap</span> , <span class='ppt-value'>flex-shrink</span> , <span class='ppt-value'>place-content</span> , <span class='ppt-value'>align-content</span> , <span class='ppt-value'>justify-items</span> , <span class='ppt-value'>order</span>,etc</p>
+            </section>
+            <section class='main-section' id='Media_Queries'>
+                <header>Media Queries</header>
+                <p>Media query is a CSS technique introduced in CSS3.</p>
+                <p>It uses the @media rule to include a block of CSS properties only if a certain condition is true.</p>
+                <p>Example</p>
+                <p>Using a form with an <span class='ppt-value'>id</span> of form as an illustration,and our knowledge of Flexbox.</p>
+                <p>When the broswer window width is greater than 750px:</p>
+                <code>
+                    <span class="selector">#form</span><span class="symbols">{</span><br>
+                        <span class="cssppt">display</span><span class='symbols'>: </span><span class='cssvalue'>flex</span><span class='symbols'>;</span><br>
+                        <span class="cssppt">flex-direction</span><span class='symbols'>: </span><span class='cssvalue'>row</span><span class='symbols'>;</span><br>
+                        <span class="cssppt">align-items</span><span class='symbols'>: </span><span class='cssvalue'>center</span><span class='symbols'>;</span><br>
+                        <span class="cssppt">min-height</span><span class='symbols'>: </span><span class='cssvalue'>160px</span><span class='symbols'>;</span><br>
+                        <span class="cssppt">width</span><span class='symbols'>: </span><span class='cssvalue'>90%</span><span class='symbols'>;</span><br>
+                        <span class='symbols'>}</span><br>
+                </code>
+              <div class='img-div one'><img src="flex-row.png" alt="form-row"></div>
+               <p>When the broswer window width is at/or less than 750px:</p>
+               <code>
+                   <span class='selector'>@media</span><span class='symbols'>(</span><span class='cssppt'>max-width</span><span class='symbols'>:</span><span class="cssvalue">750px</span><span class="symbols">){</span><br>
+                <span class="selector mar">#form</span><span class="symbols">{</span><br>
+                    <span class="cssppt mar">display</span><span class='symbols'>: </span><span class='cssvalue'>flex</span><span class='symbols'>;</span><br>
+                    <span class="cssppt mar">flex-direction</span><span class='symbols'>: </span><span class='cssvalue'>column</span><span class='symbols'>;</span><br>
+                    <span class="cssppt mar">width</span><span class='symbols'>: </span><span class='cssvalue'>80%</span><span class='symbols'>;</span><br>
+                    <span class="cssppt mar">justify-content</span><span class='symbols'>: </span><span class='cssvalue'>space-evenly</span><span class='symbols'>;</span><br>
+                    <span class="cssppt mar">width</span><span class='symbols'>: </span><span class='cssvalue'>90%</span><span class='symbols'>;</span><br>
+                    <span class='symbols mar'>}</span><br>
+                    <span class='symbols'>}</span><br>
+
+               </code>
+
+              <div class='img-div two'><img src='flex-column.png' alt ="form-column"></div>
+            </section>
+            <section class="main-section" id="CSS_HowTo">
+                <header>CSS HowTo</header>
+                <h3>This section will be showing /navigating us with links to some CSS HowTos in responsive design</h3>
+                <p><a href='www.w3schools.com' target='_blank'>w3schools.com</a> is one of the most visited site for coders, because it is like a bank for solutions to daily Frontend tasks/chllenges</p>
+                <ul>
+                    <li><a href='https://www.w3schools.com/howto/howto_css_icon_bar.asp' target='_blank'>Icon Bar</a></li>
+                    <li><a href='https://www.w3schools.com/howto/howto_css_menu_icon.asp' target='_blank'>Menu Bar</a></li>
+                    <li><a href='https://www.w3schools.com/howto/howto_css_responsive_header.asp' target='_blank'>Responsive Header</a></li>
+
+                    <li><a href='https://www.w3schools.com/howto/howto_js_off-canvas.asp' target='_blank'>CSS Off-canvas Menu</a></li>
+                </ul>
+                <a id='back-to-top' href='#header'>Back to top</a>
+            </section>
+            <footer>
+               <div id="tech-accts">
+                    <a href='https://twitter.com/_Jurrsh_' target='_blank'><svg width="30" height="30" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path  d="M18 0.5C8.33594 0.5 0.5 8.33594 0.5 18C0.5 27.6641 8.33594 35.5 18 35.5C27.6641 35.5 35.5 27.6641 35.5 18C35.5 8.33594 27.6641 0.5 18 0.5ZM26.4102 13.6914C26.4219 13.875 26.4219 14.0664 26.4219 14.2539C26.4219 19.9883 22.0547 26.5938 14.0742 26.5938C11.6133 26.5938 9.33203 25.8789 7.41016 24.6484C7.76172 24.6875 8.09766 24.7031 8.45703 24.7031C10.4883 24.7031 12.3555 24.0156 13.8438 22.8516C11.9375 22.8125 10.3359 21.5625 9.78906 19.8438C10.457 19.9414 11.0586 19.9414 11.7461 19.7656C10.7646 19.5662 9.88232 19.0331 9.24928 18.257C8.61624 17.4808 8.27143 16.5094 8.27344 15.5078V15.4531C8.84766 15.7773 9.52344 15.9766 10.2305 16.0039C9.6361 15.6078 9.14866 15.0711 8.81137 14.4415C8.47408 13.8119 8.29736 13.1088 8.29688 12.3945C8.29688 11.5859 8.50781 10.8477 8.88672 10.207C9.97618 11.5482 11.3357 12.6451 12.8768 13.4264C14.418 14.2078 16.1063 14.6561 17.832 14.7422C17.2188 11.793 19.4219 9.40625 22.0703 9.40625C23.3203 9.40625 24.4453 9.92969 25.2383 10.7734C26.2188 10.5898 27.1562 10.2227 27.9922 9.73047C27.668 10.7344 26.9883 11.582 26.0859 12.1172C26.9609 12.0234 27.8047 11.7812 28.5859 11.4414C27.9961 12.3086 27.2578 13.0781 26.4102 13.6914Z" fill="#254AB7"/>
+                    </svg></a>
+                    <a href='https://github.com/JoshAnaba' target='_blank'><img href='github-logo'></a>
+                    <a href="https://dev.to/joshanaba">
+                        <img src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="Josh Anaba's DEV Profile" height="30" width="30">
+                    </a>
+               </div>
+    
+                <p><strong>&Copy Copyright 2020: Josh Anaba</strong></p>
+            </footer>
+        </main>
+    </div>
+</head>
+</body>
+</html>
