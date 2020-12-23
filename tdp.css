@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -136,7 +138,7 @@ code{
     display: block;
     width: 90%;
     font-weight: 600;
-    font-family: "Courier New", Courier, monospace;
+    font-family: "Courier Prime", Courier, monospace;
 }
 
 .tagname{
@@ -205,9 +207,6 @@ footer{
 }
 
 @media(max-width: 800px){
-    img{
-        width: 100%;
-    }
 
     .img-div{
         width: 85vw;
